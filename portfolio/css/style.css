@@ -1,0 +1,371 @@
+@charset 'UTF-8';
+
+p{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height:1.6rem;
+  letter-spacing: 0.1em;
+}
+
+img {
+  max-width: 100%;
+}
+
+:root{
+--green:#334a46;
+--blue:rgb(140, 190, 230);
+--brown:#403632
+}
+
+.wrapper{
+max-width:38rem;
+margin:auto;
+padding: 0 1rem
+}
+
+body {
+  color: var(--brown);
+  background: url('https://assets.codepen.io/85188/bg-shadow.jpg') no-repeat right bottom / cover fixed;
+  text-align: center;
+}
+
+
+/*ロード画面*/
+ /* 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜*/
+#loading{
+  background-color: gray;
+  display: grid;
+  place-items:center;
+  position:fixed;
+  inset:0;
+  z-index: 5000;
+}
+
+#loading p{
+font-size: 2rem;
+}
+
+#loading-screen{
+background-color: var(--blue);
+position: fixed;
+inset:0;
+z-index: 3000;
+translate:0 100vh
+}
+
+
+/*トップ　タイトル画面*/
+ /* 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜*/
+
+ .title{
+  font-size: 4rem;
+  margin-bottom: 3rem;
+  color:var(--green);
+  }
+
+.title-screen{
+  height: 100vh;
+  position: relative;
+  z-index: 4000;
+}
+
+.title-screen::after{
+  content: "";
+  top: 0;
+  left: 0;
+  /* inset:0 でもよし　*/
+  position: absolute;
+  width: 50%;
+  height: 100vh;
+  background-image:url(https://g-sozai.com/data/g523_600.jpg);
+  background-repeat: no-repeat; 
+}
+
+.title-screen .title{
+position: absolute;
+top: 50%;
+left: 50%;
+translate: -50% -50%;
+width: 100%;
+text-align: center;
+font-size: max(10vw, 1rem);
+z-index: 7000;
+line-height: 1.5;
+color:var(--green);
+text-shadow: 4px 2px 2px rgb(165, 152, 152);
+} 
+
+/*ハンバーガーメニュー*/
+ /* 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜*/
+.btn-menu{
+  position:fixed;
+  right:1rem;
+  top:1rem;
+  z-index: 9000;
+  padding: .5rem 1rem;
+  border:1px solid var(--green);
+  border-radius: 50%;
+  height: 4rem;
+  width:4rem;
+  transition: .4s;
+}
+.btn-menu svg{
+  fill:white;
+  margin-top: .25rem;
+  height: 2rem;
+  width:2rem;
+  stroke: var(--green); 
+}
+
+#menu-close{
+  border: 1px solid var(--green);
+}
+
+#menu-close svg{
+  fill:var(--green)
+}
+
+#menu-panel{
+  position:fixed;
+  top:0;
+  right:0;
+  z-index: 9000;
+  padding:8rem 2rem 2rem 2rem;
+  width:max(32vw,20rem);
+  height:100vw;
+  background-color: var(--green);
+  box-shadow: 0 0 2rem gray;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  translate:100vw; 
+}
+
+.btn-menu:hover {
+  background-color:rgb(148, 187, 193);
+}
+
+.menu-list{
+  list-style:none;
+}
+
+.menu-list li{
+  margin:1.5rem 0;
+  opacity: 0;
+}
+
+.menu-list a{
+  color:white;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.menu-list a:hover {
+  transition: .2s;
+  color: lightpink;
+}
+
+/* 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜*/
+  /* Concept（説明部分）*/
+.concept{
+  display: flex;
+  margin: 12rem 0;
+  position: relative;
+}
+
+.concept::before{
+  content: "";
+  position: absolute;
+  background-color: rgb(202, 222, 201);
+  z-index: -1; 
+  top: 0;
+  right: 0;
+  width: 75%; /* 四角の幅を調整 */
+  height: 100%;
+  margin: 6rem 0;
+}
+
+.concept p{
+  color:var(--green);
+  margin-bottom: 2rem;
+  text-align-last: left;
+}
+
+.concept img {
+  max-width: 38rem;
+  object-fit: contain;
+}
+
+   /* 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜*/
+  /* Collection（画像が並んでいる部分）*/
+  .collection{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .collection-content{
+   top:20px;
+    align-items: center;
+    width:30vw
+  }
+
+  .gallery-top{
+    position: relative;
+    width: 50vw;
+    margin: 0;
+  }
+
+  .gallery-top::after {
+     display: block;
+    content: '';
+    width: calc(100% - 2.5rem);
+    height: calc(86% - 2rem);
+    z-index: 3;
+    border: 3px solid white;
+    top: 1rem;
+    left: 1rem;
+    position: absolute;
+}
+
+  .gallery-top img{
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .gallery-imgs{
+    display: grid;
+    gap: 2vw;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    margin: auto;
+  }
+
+  .gallery-imgs img{
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)
+  }
+
+  .gallery-imgs img:hover{
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 15);
+    transform: scale(1.05);
+  }
+
+  #Viewmore{
+    margin-top: 2rem;
+    position: absolute;
+    right:10%;
+    color:var(--green)
+  }
+
+ #Viewmore:hover {
+    background-color: var(--blue);
+    box-shadow:0 0 1rem rgba(0,0,0,0.4);}
+
+.text{
+  margin-top: 40px;
+}
+
+/* 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜*/
+  /* Shop 詳細*/
+.shop{
+  background:url('https://g-sozai.com/data/g418_600.jpg')no-repeat center top /cover;
+  margin-top:16rem;
+  position: relative;
+  height: 50rem;
+}
+
+.shop-content{
+  background:white;
+  padding: 3rem;
+  position: absolute;
+  width:100vw;
+  left:0;
+  right:0;
+  top:-7rem
+}
+
+.shop h3{
+  margin:20px 0;
+  padding-top: 30px;
+  font-weight: normal;
+  border-top:1px solid #eee;
+}
+
+.btn{
+  margin:35px 0;
+  padding: 15px;
+  background-color:var(--green);
+  color:azure;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: steelblue;
+  box-shadow:0 0 1rem rgba(0,0,0,0.4);
+}
+
+.fadein{
+  opacity: 0;
+}
+
+
+/* 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜*/
+  /* レスポンシブデザイン　*/
+@media(max-width:768px){
+  .wrapper{
+    margin:auto;}
+
+.concept{
+    display: grid;
+    margin: 8rem 0;
+  }
+
+.concept img {
+  margin: auto;
+  width: 100%;    
+  height: auto;
+}
+
+.gallery-top{
+  width: min(100%, calc(38rem - 2rem));
+  margin: auto;
+}
+
+.gallery-top img{
+  height: 100vh;
+}
+.gallery-imgs{
+  grid-template-columns: repeat(5, 1fr);
+  margin: 1rem auto;
+}
+
+.collection{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.collection-content{
+  width:100vw
+}
+
+#Viewmore{
+  margin-top: -.5rem;
+  position: absolute;
+}
+
+.title {
+  margin-bottom: 2rem;}
+
+  .gallery-top{
+    margin-top: 3rem;
+  }
+
+  .shop{
+    margin-top: 20rem;
+    height: 50rem;
+  }
+}
